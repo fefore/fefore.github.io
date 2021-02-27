@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="So here’s the brief - Hexo is a pretty neat, fast, simple &amp; powerful blog framework, powered by Node.js. Let’s get started by installing one over GitHub pages.  Quick Start Installing Hexo Before inst">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hey there, I run on Hexo">
+<meta property="og:url" content="http://fefore.github.io/getting-started-hexo/index.html">
+<meta property="og:site_name" content="DevOps with Arvind">
+<meta property="og:description" content="So here’s the brief - Hexo is a pretty neat, fast, simple &amp; powerful blog framework, powered by Node.js. Let’s get started by installing one over GitHub pages.  Quick Start Installing Hexo Before inst">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-01-26T23:27:56.000Z">
+<meta property="article:modified_time" content="2021-02-27T02:36:02.436Z">
+<meta property="article:author" content="Arvind Sharma">
+<meta property="article:tag" content="blog">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="nodejs">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Hey there, I run on Hexo</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/true" title="DevOps with Arvind" type="application/atom+xml" />
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/get-handy-with-git/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://fefore.github.io/getting-started-hexo/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://fefore.github.io/getting-started-hexo/&text=Hey there, I run on Hexo"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://fefore.github.io/getting-started-hexo/&title=Hey there, I run on Hexo"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://fefore.github.io/getting-started-hexo/&is_video=false&description=Hey there, I run on Hexo"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Hey there, I run on Hexo&body=Check out this article: http://fefore.github.io/getting-started-hexo/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://fefore.github.io/getting-started-hexo/&title=Hey there, I run on Hexo"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://fefore.github.io/getting-started-hexo/&title=Hey there, I run on Hexo"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://fefore.github.io/getting-started-hexo/&title=Hey there, I run on Hexo"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://fefore.github.io/getting-started-hexo/&title=Hey there, I run on Hexo"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://fefore.github.io/getting-started-hexo/&name=Hey there, I run on Hexo&description=So here’s the brief - Hexo is a pretty neat, fast, simple &amp; powerful blog framework, powered by Node.js. Let’s get started by installing one over GitHub pages.
+
+Quick Start
+Installing Hexo
+Before install Hexo, you should have Node and NPM installed in your machine. In order to install Node, I recomm"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://fefore.github.io/getting-started-hexo/&t=Hey there, I run on Hexo"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Installing-Hexo"><span class="toc-number">1.1.</span> <span class="toc-text">Installing Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Creating-your-blog"><span class="toc-number">1.2.</span> <span class="toc-text">Creating your blog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Installing-a-New-Theme"><span class="toc-number">1.3.</span> <span class="toc-text">Installing a New Theme</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo-Plugins"><span class="toc-number">1.4.</span> <span class="toc-text">Hexo Plugins</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Configuring-Your-Blog"><span class="toc-number">1.5.</span> <span class="toc-text">Configuring Your Blog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Writing-on-Hexo"><span class="toc-number">1.6.</span> <span class="toc-text">Writing on Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hosting-Your-Blog"><span class="toc-number">1.7.</span> <span class="toc-text">Hosting Your Blog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Enabling-HTTPS-on-GitHub"><span class="toc-number">1.8.</span> <span class="toc-text">Enabling HTTPS on GitHub</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Adding-a-favicon"><span class="toc-number">1.9.</span> <span class="toc-text">Adding a favicon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-and-Deploy"><span class="toc-number">1.10.</span> <span class="toc-text">Generate and Deploy</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Hey there, I run on Hexo
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Arvind Sharma</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-01-26T23:27:56.000Z" itemprop="datePublished">2019-01-27</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/blog/" rel="tag">blog</a>, <a class="tag-link-link" href="/tags/hexo/" rel="tag">hexo</a>, <a class="tag-link-link" href="/tags/nodejs/" rel="tag">nodejs</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    6 min. read
+    <p>So here’s the brief - Hexo is a pretty neat, fast, simple &amp; powerful blog framework, powered by Node.js. Let’s get started by installing one over GitHub pages.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Installing-Hexo"><a href="#Installing-Hexo" class="headerlink" title="Installing Hexo"></a>Installing Hexo</h3><p>Before install Hexo, you should have Node and NPM installed in your machine. In order to install Node, I recommend you to use nvm to manage your Node &amp; NPM installation.</p>
+<p>Now it’s time to install Hexo. You just need to:</p>
+<pre><code>npm install hexo-cli -g
+</code></pre>
+<h3 id="Creating-your-blog"><a href="#Creating-your-blog" class="headerlink" title="Creating your blog"></a>Creating your blog</h3><p>After install Hexo, let’s create our blog with the Hexo CLI tool. To do this, type the following commands in your terminal:</p>
+<pre><code>hexo init &lt;blog-name&gt; &amp;&amp; $_
+Replace &lt;blog-name&gt; with the name of the folder where your files will be located.
+$_ is a shortcut for cd &lt;blog-name&gt;
+</code></pre>
+<h3 id="Installing-a-New-Theme"><a href="#Installing-a-New-Theme" class="headerlink" title="Installing a New Theme"></a>Installing a New Theme</h3><p>If you want to change the default theme, you just need to go here and find a new one you prefer.</p>
+<p>I’m current using the Cactus Dark theme. I’ll show you how to install this theme, but the procedure is almost equal for all themes.</p>
+<p>In the root folder of your blog, type the following command:</p>
+<pre><code>git clone https://github.com/probberechts/hexo-theme-cactus.git themes/cactus
+</code></pre>
+<p>Now you need to tell Hexo which theme you want to use. To do this you need to open the <code>_config.yml</code> in your root directory and change the theme property value to next.</p>
+<h3 id="Hexo-Plugins"><a href="#Hexo-Plugins" class="headerlink" title="Hexo Plugins"></a>Hexo Plugins</h3><p>To generate all files and features that your blog will have (Archive section, RSS Feed, Browsersync, etc) you need to install some additional modules, or hexo plugins. I’m currently using the following modules:</p>
+<blockquote>
+<p>package.json</p>
+</blockquote>
+<pre><code>&quot;dependencies&quot;: &#123;
+    &quot;hexo&quot;: &quot;^3.2.0&quot;,
+    &quot;hexo-admin&quot;: &quot;^2.3.0&quot;,
+    &quot;hexo-deployer-git&quot;: &quot;^0.3.1&quot;,
+    &quot;hexo-filter-cleanup&quot;: &quot;^1.1.0&quot;,
+    &quot;hexo-generator-archive&quot;: &quot;^0.1.4&quot;,
+    &quot;hexo-generator-category&quot;: &quot;^0.1.3&quot;,
+    &quot;hexo-generator-feed&quot;: &quot;^1.2.2&quot;,
+    &quot;hexo-generator-index&quot;: &quot;^0.2.0&quot;,
+    &quot;hexo-generator-search&quot;: &quot;^2.2.5&quot;,
+    &quot;hexo-generator-sitemap&quot;: &quot;^1.2.0&quot;,
+    &quot;hexo-generator-tag&quot;: &quot;^0.2.0&quot;,
+    &quot;hexo-git-backup&quot;: &quot;^0.1.2&quot;,
+    &quot;hexo-global-license&quot;: &quot;^0.5.2&quot;,
+    &quot;hexo-gzip&quot;: &quot;0.0.1&quot;,
+    &quot;hexo-livereload&quot;: &quot;^0.2.0&quot;,
+    &quot;hexo-reading-time&quot;: &quot;^1.0.3&quot;,
+    &quot;hexo-renderer-ejs&quot;: &quot;^0.3.0&quot;,
+    &quot;hexo-renderer-markdown-it&quot;: &quot;^3.4.1&quot;,
+    &quot;hexo-renderer-marked&quot;: &quot;^0.3.0&quot;,
+    &quot;hexo-renderer-stylus&quot;: &quot;^0.3.1&quot;,
+    &quot;hexo-server&quot;: &quot;^0.2.0&quot;,
+    &quot;npm&quot;: &quot;^6.0.0&quot;
+&#125;
+</code></pre>
+<p>When we install Hexo, we have by default the following plugins installed:</p>
+<pre><code>&quot;dependencies&quot;: &#123;
+    &quot;hexo&quot;: &quot;^3.2.0&quot;,
+    &quot;hexo-generator-archive&quot;: &quot;^0.1.4&quot;,
+    &quot;hexo-generator-category&quot;: &quot;^0.1.3&quot;,
+    &quot;hexo-generator-feed&quot;: &quot;^1.2.2&quot;,
+    &quot;hexo-generator-index&quot;: &quot;^0.2.0&quot;,
+    &quot;hexo-generator-search&quot;: &quot;^2.2.5&quot;,
+    &quot;hexo-generator-tag&quot;: &quot;^0.2.0&quot;,
+    &quot;hexo-renderer-ejs&quot;: &quot;^0.3.0&quot;,
+    &quot;hexo-renderer-stylus&quot;: &quot;^0.3.1&quot;,
+    &quot;hexo-renderer-marked&quot;: &quot;^0.3.0&quot;,
+    &quot;hexo-server&quot;: &quot;^0.2.0&quot;
+    &#125;
+</code></pre>
+<p>Awesome! You can test your brand new blog now typing these commands in your terminal:</p>
+<pre><code>hexo g &amp;&amp; hexo s
+</code></pre>
+<p>This is a shortcut for hexo generate and hexo server</p>
+<h3 id="Configuring-Your-Blog"><a href="#Configuring-Your-Blog" class="headerlink" title="Configuring Your Blog"></a>Configuring Your Blog</h3><p>Now that you have your site up and running, you need to configure it with your personal information. We have two configurations files to change, <code>_config.yml</code> in the root of your project, and <code>_config.yml</code> located in the <code>themes/cactus</code> folder. Just open those files and put your personal information on them!</p>
+<p>If you have some doubts about it, look my config files in GitHub.</p>
+<h3 id="Writing-on-Hexo"><a href="#Writing-on-Hexo" class="headerlink" title="Writing on Hexo"></a>Writing on Hexo</h3><p>Now you are almost done with your blog setup. It is time to write your first article. There are three default layouts in Hexo: post, page and draft. Files created by each of them is saved to a different path.</p>
+<p>To generate a new psot/article file, use the following command:</p>
+<pre><code>hexo new post &quot;&lt;random_post&gt;&quot;
+</code></pre>
+<p>This file will be located at <code>source/_posts</code>. Likewise, if you want to add a page, use the following command:</p>
+<pre><code>hexo new page &quot;&lt;random_page_name&gt;&quot;
+</code></pre>
+<p>This file will be located at <code>source</code>. More information about writing can be found <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">here</a>.</p>
+<h3 id="Hosting-Your-Blog"><a href="#Hosting-Your-Blog" class="headerlink" title="Hosting Your Blog"></a>Hosting Your Blog</h3><p>You can host your blog for free in GitHub. You have two “hosting options” to do this:</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://username.github.io/">https://username.github.io</a><br>If you want your blog to be found in this type of address, for example: <a href="https://fefore.github.io/">https://fefore.github.io</a>, you need to create a repository on GitHub with that exactly name: <username>.github.io. In this type of repository, you should deploy your files to the master branch.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://username.github.io/repository-name">https://username.github.io/repository-name</a><br>If you want your blog to be found in this type of address, for example: <a href="https://fefore.github.io/blog">https://fefore.github.io/blog</a>, you need to create a repository on GitHub with that exactly name: blog. In this type of repository, you should deploy your files to the <code>gh-pages</code> branch.</p>
+</li>
+</ul>
+<h3 id="Enabling-HTTPS-on-GitHub"><a href="#Enabling-HTTPS-on-GitHub" class="headerlink" title="Enabling HTTPS on GitHub"></a>Enabling HTTPS on GitHub</h3><p>To enable HTTPS on your blog, go to the Settings tab in your repository, scroll down the page and click on Enforce HTTPS.</p>
+<h3 id="Adding-a-favicon"><a href="#Adding-a-favicon" class="headerlink" title="Adding a favicon"></a>Adding a favicon</h3><p>Just go to the Realfavicongenerator.net site and generate your favicon. After this, put the favicon.ico in the source folder.</p>
+<h3 id="Generate-and-Deploy"><a href="#Generate-and-Deploy" class="headerlink" title="Generate and Deploy"></a>Generate and Deploy</h3><p>This is the final step! Let’s generate the static files and deploy those ones to GitHub. Edit your config file and use the following commands:</p>
+<blockquote>
+<p>_config.yaml</p>
+</blockquote>
+<pre><code>deploy:
+  - type: git
+    repo: git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git
+    branch: master
+  - type: git
+    repo: git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git
+    branch: src
+    extend_dirs: /
+    ignore_hidden: false
+    ignore_pattern:
+        public: .
+</code></pre>
+<p>OBS: The information about where Hexo should deploy your files should be stated in the <code>_config.yml</code> at the root of your project.</p>
+<pre><code>hexo d -g
+</code></pre>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Installing-Hexo"><span class="toc-number">1.1.</span> <span class="toc-text">Installing Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Creating-your-blog"><span class="toc-number">1.2.</span> <span class="toc-text">Creating your blog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Installing-a-New-Theme"><span class="toc-number">1.3.</span> <span class="toc-text">Installing a New Theme</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo-Plugins"><span class="toc-number">1.4.</span> <span class="toc-text">Hexo Plugins</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Configuring-Your-Blog"><span class="toc-number">1.5.</span> <span class="toc-text">Configuring Your Blog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Writing-on-Hexo"><span class="toc-number">1.6.</span> <span class="toc-text">Writing on Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hosting-Your-Blog"><span class="toc-number">1.7.</span> <span class="toc-text">Hosting Your Blog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Enabling-HTTPS-on-GitHub"><span class="toc-number">1.8.</span> <span class="toc-text">Enabling HTTPS on GitHub</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Adding-a-favicon"><span class="toc-number">1.9.</span> <span class="toc-text">Adding a favicon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-and-Deploy"><span class="toc-number">1.10.</span> <span class="toc-text">Generate and Deploy</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://fefore.github.io/getting-started-hexo/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://fefore.github.io/getting-started-hexo/&text=Hey there, I run on Hexo"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://fefore.github.io/getting-started-hexo/&title=Hey there, I run on Hexo"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://fefore.github.io/getting-started-hexo/&is_video=false&description=Hey there, I run on Hexo"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Hey there, I run on Hexo&body=Check out this article: http://fefore.github.io/getting-started-hexo/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://fefore.github.io/getting-started-hexo/&title=Hey there, I run on Hexo"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://fefore.github.io/getting-started-hexo/&title=Hey there, I run on Hexo"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://fefore.github.io/getting-started-hexo/&title=Hey there, I run on Hexo"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://fefore.github.io/getting-started-hexo/&title=Hey there, I run on Hexo"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://fefore.github.io/getting-started-hexo/&name=Hey there, I run on Hexo&description=So here’s the brief - Hexo is a pretty neat, fast, simple &amp; powerful blog framework, powered by Node.js. Let’s get started by installing one over GitHub pages.
+
+Quick Start
+Installing Hexo
+Before install Hexo, you should have Node and NPM installed in your machine. In order to install Node, I recomm"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://fefore.github.io/getting-started-hexo/&t=Hey there, I run on Hexo"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2021
+    Arvind Sharma
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'paas-network';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>

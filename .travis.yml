@@ -8,6 +8,7 @@ branches:
     - master 
 script:
   - hexo generate
+  - travis logs --delete --force
 deploy:
   provider: pages
   skip-cleanup: true
@@ -16,8 +17,3 @@ deploy:
   on:
     branch: master
   local-dir: public
-#cleanup after jobs
-  provider: script
-    script: travis logs --delete --force
-    on:
-      branch: master

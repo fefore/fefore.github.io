@@ -39,6 +39,7 @@ deploy:
     skip-cleanup: true
     github-token: $GH_TOKEN
     keep-history: true
+    fqdn: <your-custom-domain>
     on:
     branch: master
     local-dir: public
@@ -50,7 +51,16 @@ Once Travis CI finish the deployment, the generated pages can be found in the gh
 
 In your GitHub repo’s setting, navigate to “GitHub Pages” section and change Source to gh-pages branch.
 
-Check the webpage at username.github.io.
+---
+**NOTE**
+
+If you'd like to point GitHub pages to a custom domain, follow the instructions from Github going through your repo settings. When you pass in your custom domain, GitHub creates a CNAME txt file on your repo at the root level. Ensure your CNAME on DNS records for your domain points to username.github.io.
+
+Also ensure you provide the fqdn flag on your travis config as hexo deployer resets to default on every new run. Once the fqdn is set, this overrides the default and GitHub will keep track of your CNAME
+
+---
+
+Check the webpage at username.github.io. or your-custom-domain if you've configured the settings.
 
 ## Project page
 

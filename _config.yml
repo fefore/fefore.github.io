@@ -11,7 +11,6 @@ author: Arvind Sharma
 timezone: Australia/Melbourne
 
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://fefore.github.io
 root: /
 permalink: :title/
@@ -93,20 +92,6 @@ marked:
     nofollow: false
   disableNunjucks: false
   descriptionLists: true
-
-# Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  - type: git
-    repo: git@github.com:fefore/fefore.github.io.git
-    branch: master
-  - type: git
-    repo: git@github.com:fefore/fefore.github.io.git
-    branch: src
-    extend_dirs: /
-    ignore_hidden: false
-    ignore_pattern:
-        public: .
 
 sitemap:
     path: sitemap.xml

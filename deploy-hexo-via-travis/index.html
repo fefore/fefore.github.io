@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://res.cloudinary.com/metasquare/image/upload/v1614401612/Paas/travis-git.png">
 <meta property="og:image" content="https://res.cloudinary.com/metasquare/image/upload/v1614401599/Paas/deploy.png">
 <meta property="article:published_time" content="2019-09-11T01:04:21.000Z">
-<meta property="article:modified_time" content="2021-02-27T05:09:43.592Z">
+<meta property="article:modified_time" content="2021-02-27T05:20:59.926Z">
 <meta property="article:author" content="Arvind Sharma">
 <meta property="article:tag" content="git">
 <meta property="article:tag" content="github pages">
@@ -160,7 +160,7 @@ Public repositor"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
   
 
   <div class="content" itemprop="articleBody">
-    3 min. read
+    4 min. read
     <p>I’ve used Travis CI to deploy Github Pages. It is free for open source repository, meaning your repository’s master branch has to be public. Please skip to the Private repository section if you prefer to keep the repo private, or prefer not to upload your source folder to GitHub.</p>
 <p><img src="https://res.cloudinary.com/metasquare/image/upload/v1614401612/Paas/travis-git.png" alt="tech"></p>
 <h2 id="Public-repository"><a href="#Public-repository" class="headerlink" title="Public repository"></a>Public repository</h2><ul>
@@ -188,6 +188,7 @@ deploy:
     skip-cleanup: true
     github-token: $GH_TOKEN
     keep-history: true
+    fqdn: &lt;your-custom-domain&gt;
     on:
     branch: master
     local-dir: public
@@ -195,7 +196,12 @@ deploy:
 <p><img src="https://res.cloudinary.com/metasquare/image/upload/v1614401599/Paas/deploy.png" alt="flow"></p>
 <p>Once Travis CI finish the deployment, the generated pages can be found in the gh-pages branch of your repository</p>
 <p>In your GitHub repo’s setting, navigate to “GitHub Pages” section and change Source to gh-pages branch.</p>
-<p>Check the webpage at username.github.io.</p>
+<hr>
+<p><strong>NOTE</strong></p>
+<p>If you’d like to point GitHub pages to a custom domain, follow the instructions from Github going through your repo settings. When you pass in your custom domain, GitHub creates a CNAME txt file on your repo at the root level. Ensure your CNAME on DNS records for your domain points to username.github.io.</p>
+<p>Also ensure you provide the fqdn flag on your travis config as hexo deployer resets to default on every new run. Once the fqdn is set, this overrides the default and GitHub will keep track of your CNAME</p>
+<hr>
+<p>Check the webpage at username.github.io. or your-custom-domain if you’ve configured the settings.</p>
 <h2 id="Project-page"><a href="#Project-page" class="headerlink" title="Project page"></a>Project page</h2><p>If you prefer to have a project page on GitHub:</p>
 <p>Navigate to your repo on GitHub. Go to the Settings tab. Change the Repository name so your blog is available at username.github.io/repository, repository can be any name, like blog or hexo.<br>Edit your _config.yml, change the root: value to the /<repository>/ (must starts and ends with a slash, without the brackets).<br>Commit and push.</p>
 <h2 id="Private-repository"><a href="#Private-repository" class="headerlink" title="Private repository"></a>Private repository</h2><p>The following instruction is adapted from one-command deployment page.</p>

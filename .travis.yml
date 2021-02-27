@@ -17,7 +17,7 @@ deploy:
     branch: master
   local-dir: public
 #cleanup after jobs
-- provider: script
+  provider: script
     script: travis logs --delete --force
     on:
       branch: master

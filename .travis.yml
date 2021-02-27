@@ -8,7 +8,6 @@ branches:
     - master 
 script:
   - hexo generate
-  - travis logs --delete --force
 deploy:
   provider: pages
   skip-cleanup: true

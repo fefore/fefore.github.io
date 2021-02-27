@@ -10,9 +10,14 @@ script:
   - hexo generate
 deploy:
   provider: pages
-  skip-cleanup: false
+  skip-cleanup: true
   github-token: $GH_TOKEN
   keep-history: true
   on:
     branch: master
   local-dir: public
+#cleanup after jobs
+- provider: script
+    script: travis logs --delete --force
+    on:
+      branch: master

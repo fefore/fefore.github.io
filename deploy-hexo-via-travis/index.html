@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="I’ve used Travis CI to deploy Github Pages. It is free for open source repository, meaning your repository’s master branch has to be public. Please skip to the Private repository section if you prefer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deploy Hexo via Travis CI">
+<meta property="og:url" content="http://fefore.github.io/deploy-hexo-via-travis/index.html">
+<meta property="og:site_name" content="DevOps with Arvind">
+<meta property="og:description" content="I’ve used Travis CI to deploy Github Pages. It is free for open source repository, meaning your repository’s master branch has to be public. Please skip to the Private repository section if you prefer">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://res.cloudinary.com/metasquare/image/upload/v1614401612/Paas/travis-git.png">
+<meta property="og:image" content="https://res.cloudinary.com/metasquare/image/upload/v1614401599/Paas/deploy.png">
+<meta property="article:published_time" content="2019-09-11T01:04:21.000Z">
+<meta property="article:modified_time" content="2021-02-27T04:59:02.237Z">
+<meta property="article:author" content="Arvind Sharma">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="github pages">
+<meta property="article:tag" content="travis-ci">
+<meta property="article:tag" content="ci">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://res.cloudinary.com/metasquare/image/upload/v1614401612/Paas/travis-git.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Deploy Hexo via Travis CI</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/true" title="DevOps with Arvind" type="application/atom+xml" />
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/getting-started-hexo/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://fefore.github.io/deploy-hexo-via-travis/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://fefore.github.io/deploy-hexo-via-travis/&text=Deploy Hexo via Travis CI"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://fefore.github.io/deploy-hexo-via-travis/&title=Deploy Hexo via Travis CI"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://fefore.github.io/deploy-hexo-via-travis/&is_video=false&description=Deploy Hexo via Travis CI"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Deploy Hexo via Travis CI&body=Check out this article: http://fefore.github.io/deploy-hexo-via-travis/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://fefore.github.io/deploy-hexo-via-travis/&title=Deploy Hexo via Travis CI"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://fefore.github.io/deploy-hexo-via-travis/&title=Deploy Hexo via Travis CI"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://fefore.github.io/deploy-hexo-via-travis/&title=Deploy Hexo via Travis CI"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://fefore.github.io/deploy-hexo-via-travis/&title=Deploy Hexo via Travis CI"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://fefore.github.io/deploy-hexo-via-travis/&name=Deploy Hexo via Travis CI&description=I’ve used Travis CI to deploy Github Pages. It is free for open source repository, meaning your repository’s master branch has to be public. Please skip to the Private repository section if you prefer to keep the repo private, or prefer not to upload your source folder to GitHub.
+
+
+
+Public repositor"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://fefore.github.io/deploy-hexo-via-travis/&t=Deploy Hexo via Travis CI"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Public-repository"><span class="toc-number">1.</span> <span class="toc-text">Public repository</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Project-page"><span class="toc-number">2.</span> <span class="toc-text">Project page</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Private-repository"><span class="toc-number">3.</span> <span class="toc-text">Private repository</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Deploy Hexo via Travis CI
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Arvind Sharma</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-09-11T01:04:21.000Z" itemprop="datePublished">2019-09-11</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/ci/" rel="tag">ci</a>, <a class="tag-link-link" href="/tags/git/" rel="tag">git</a>, <a class="tag-link-link" href="/tags/github-pages/" rel="tag">github pages</a>, <a class="tag-link-link" href="/tags/travis-ci/" rel="tag">travis-ci</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    3 min. read
+    <p>I’ve used Travis CI to deploy Github Pages. It is free for open source repository, meaning your repository’s master branch has to be public. Please skip to the Private repository section if you prefer to keep the repo private, or prefer not to upload your source folder to GitHub.</p>
+<p><img src="https://res.cloudinary.com/metasquare/image/upload/v1614401612/Paas/travis-git.png" alt="tech"></p>
+<h2 id="Public-repository"><a href="#Public-repository" class="headerlink" title="Public repository"></a>Public repository</h2><ul>
+<li>Create a repo named username.github.io, where username is your username on GitHub. If you have already uploaded to other repo, rename the repo instead.</li>
+<li>Push the files of your Hexo folder to the repository. The public/ folder is not (and should not be) uploaded by default, make sure the .gitignore file contains public/ line. The folder structure should be roughly similar to this repo, without the .gitmodules file.</li>
+<li>Add Travis CI to your account.</li>
+<li>Go to Applications settings, configure Travis CI to have access to the repo.</li>
+<li>You’ll be redirected to Travis page.</li>
+<li>On a new tab, generate a new token with repo scopes. Note down the token value.</li>
+<li>On the Travis page, go to your repo’s setting. Under Environment Variables, put GH_TOKEN as name and paste the token onto value. Click Add to save it.</li>
+<li>Add .travis.yml file to your repo (alongside _config.yml &amp; package.json) with the following content:</li>
+</ul>
+<pre><code>sudo: false
+language: node_js
+node_js:
+    - 10 # use nodejs v10 LTS
+cache: npm
+branches:
+    only:
+    - master # build master branch only
+script:
+    - hexo generate # generate static files
+deploy:
+    provider: pages
+    skip-cleanup: true
+    github-token: $GH_TOKEN
+    keep-history: true
+    on:
+    branch: master
+    local-dir: public
+</code></pre>
+<p><img src="https://res.cloudinary.com/metasquare/image/upload/v1614401599/Paas/deploy.png" alt="flow"></p>
+<p>Once Travis CI finish the deployment, the generated pages can be found in the gh-pages branch of your repository</p>
+<p>In your GitHub repo’s setting, navigate to “GitHub Pages” section and change Source to gh-pages branch.</p>
+<p>Check the webpage at username.github.io.</p>
+<h2 id="Project-page"><a href="#Project-page" class="headerlink" title="Project page"></a>Project page</h2><p>If you prefer to have a project page on GitHub:</p>
+<p>Navigate to your repo on GitHub. Go to the Settings tab. Change the Repository name so your blog is available at username.github.io/repository, repository can be any name, like blog or hexo.<br>Edit your _config.yml, change the root: value to the /<repository>/ (must starts and ends with a slash, without the brackets).<br>Commit and push.</p>
+<h2 id="Private-repository"><a href="#Private-repository" class="headerlink" title="Private repository"></a>Private repository</h2><p>The following instruction is adapted from one-command deployment page.</p>
+<p>Install hexo-deployer-git.</p>
+<p>Add the following configurations to _config.yml. This configures the branch to deploy public static files. You can configure any branch or use default gh-pages branch</p>
+<pre><code>deploy:
+    type: git
+    repo: https://github.com/&lt;username&gt;/&lt;project&gt;
+    # example, https://github.com/hexojs/hexojs.github.io
+    branch: gh-pages
+</code></pre>
+<p>Run the following </p>
+<pre><code>hexo clean &amp;&amp; hexo deploy.
+</code></pre>
+<p>Check the webpage at username.github.io.</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Public-repository"><span class="toc-number">1.</span> <span class="toc-text">Public repository</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Project-page"><span class="toc-number">2.</span> <span class="toc-text">Project page</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Private-repository"><span class="toc-number">3.</span> <span class="toc-text">Private repository</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://fefore.github.io/deploy-hexo-via-travis/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://fefore.github.io/deploy-hexo-via-travis/&text=Deploy Hexo via Travis CI"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://fefore.github.io/deploy-hexo-via-travis/&title=Deploy Hexo via Travis CI"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://fefore.github.io/deploy-hexo-via-travis/&is_video=false&description=Deploy Hexo via Travis CI"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Deploy Hexo via Travis CI&body=Check out this article: http://fefore.github.io/deploy-hexo-via-travis/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://fefore.github.io/deploy-hexo-via-travis/&title=Deploy Hexo via Travis CI"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://fefore.github.io/deploy-hexo-via-travis/&title=Deploy Hexo via Travis CI"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://fefore.github.io/deploy-hexo-via-travis/&title=Deploy Hexo via Travis CI"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://fefore.github.io/deploy-hexo-via-travis/&title=Deploy Hexo via Travis CI"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://fefore.github.io/deploy-hexo-via-travis/&name=Deploy Hexo via Travis CI&description=I’ve used Travis CI to deploy Github Pages. It is free for open source repository, meaning your repository’s master branch has to be public. Please skip to the Private repository section if you prefer to keep the repo private, or prefer not to upload your source folder to GitHub.
+
+
+
+Public repositor"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://fefore.github.io/deploy-hexo-via-travis/&t=Deploy Hexo via Travis CI"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2021
+    Arvind Sharma
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'paas-network';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>
